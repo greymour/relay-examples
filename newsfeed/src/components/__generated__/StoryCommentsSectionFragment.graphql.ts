@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<90e45a4f0961bbf83f009aafa324925c>>
+ * @generated SignedSource<<ec4d7c7bb9f6a15436ffba2172b16897>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type StoryCommentsSectionFragment$data = {
   readonly comments: {
@@ -16,12 +16,14 @@ export type StoryCommentsSectionFragment$data = {
       readonly node: {
         readonly id: string;
         readonly " $fragmentSpreads": FragmentRefs<"CommentFragment">;
-      } | null;
-    } | null> | null;
+      } | null | undefined;
+    } | null | undefined> | null | undefined;
     readonly pageInfo: {
-      readonly hasNextPage: boolean | null;
-    } | null;
-  } | null;
+      readonly hasNextPage: boolean | null | undefined;
+    } | null | undefined;
+  } | null | undefined;
+  readonly id: string;
+  readonly " $fragmentSpreads": FragmentRefs<"StoryCommentsComposerFragment">;
   readonly " $fragmentType": "StoryCommentsSectionFragment";
 };
 export type StoryCommentsSectionFragment$key = {
@@ -29,24 +31,67 @@ export type StoryCommentsSectionFragment$key = {
   readonly " $fragmentSpreads": FragmentRefs<"StoryCommentsSectionFragment">;
 };
 
-const node: ReaderFragment = {
-  "argumentDefinitions": [],
+const node: ReaderFragment = (function(){
+var v0 = [
+  "comments"
+],
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
+return {
+  "argumentDefinitions": [
+    {
+      "defaultValue": 3,
+      "kind": "LocalArgument",
+      "name": "count"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "cursor"
+    }
+  ],
   "kind": "Fragment",
-  "metadata": null,
+  "metadata": {
+    "connection": [
+      {
+        "count": "count",
+        "cursor": "cursor",
+        "direction": "forward",
+        "path": (v0/*: any*/)
+      }
+    ],
+    "refetch": {
+      "connection": {
+        "forward": {
+          "count": "count",
+          "cursor": "cursor"
+        },
+        "backward": null,
+        "path": (v0/*: any*/)
+      },
+      "fragmentPathInResult": [
+        "node"
+      ],
+      "operation": require('./StoryCommentsSectionPaginationQuery.graphql'),
+      "identifierInfo": {
+        "identifierField": "id",
+        "identifierQueryVariableName": "id"
+      }
+    }
+  },
   "name": "StoryCommentsSectionFragment",
   "selections": [
     {
-      "alias": null,
-      "args": [
-        {
-          "kind": "Literal",
-          "name": "first",
-          "value": 3
-        }
-      ],
+      "alias": "comments",
+      "args": null,
       "concreteType": "CommentsConnection",
       "kind": "LinkedField",
-      "name": "comments",
+      "name": "__StoryCommentsSectionFragment_comments_connection",
       "plural": false,
       "selections": [
         {
@@ -65,19 +110,27 @@ const node: ReaderFragment = {
               "name": "node",
               "plural": false,
               "selections": [
-                {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "id",
-                  "storageKey": null
-                },
+                (v1/*: any*/),
                 {
                   "args": null,
                   "kind": "FragmentSpread",
                   "name": "CommentFragment"
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "__typename",
+                  "storageKey": null
                 }
               ],
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "cursor",
               "storageKey": null
             }
           ],
@@ -97,18 +150,32 @@ const node: ReaderFragment = {
               "kind": "ScalarField",
               "name": "hasNextPage",
               "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "endCursor",
+              "storageKey": null
             }
           ],
           "storageKey": null
         }
       ],
-      "storageKey": "comments(first:3)"
-    }
+      "storageKey": null
+    },
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "StoryCommentsComposerFragment"
+    },
+    (v1/*: any*/)
   ],
   "type": "Story",
   "abstractKey": null
 };
+})();
 
-(node as any).hash = "623aea3d09348623d170898c472f9531";
+(node as any).hash = "91ee42c3868e2e09e63379006ff896ba";
 
 export default node;

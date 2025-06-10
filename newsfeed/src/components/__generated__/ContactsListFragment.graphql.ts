@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f3018d181e3b49d90119aef8009b37eb>>
+ * @generated SignedSource<<09ca4e379cfc7e0e28f81eb501631173>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,13 +8,13 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment, RefetchableFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type ContactsListFragment$data = {
   readonly contacts: ReadonlyArray<{
     readonly id: string;
     readonly " $fragmentSpreads": FragmentRefs<"ContactRowFragment">;
-  } | null> | null;
+  } | null | undefined> | null | undefined;
   readonly " $fragmentType": "ContactsListFragment";
 };
 export type ContactsListFragment$key = {
